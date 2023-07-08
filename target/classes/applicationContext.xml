@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    通过无参构造方法配置对象-->
+    <bean id="person" class="org.example.person"></bean>
+<!--    通过有参构造配置-->
+    <bean id="person2" class="org.example.person">
+        <constructor-arg name="name" value="byron"></constructor-arg>
+        <constructor-arg name="age" value="1212"></constructor-arg>
+    </bean>
+    <bean id="person3" class="org.example.staticFactory" factory-method="staticFactory">
+        <constructor-arg name="name" value="pual" />
+        <constructor-arg name="age" value="323" />
+    </bean>
+
+    <bean id="InstanceFactory" class="org.example.InstanceFactory" />
+    <bean id="person4" factory-bean="InstanceFactory" factory-method="create" />
+</beans>
